@@ -1,37 +1,29 @@
+import {photographerFactory} from "../factories/photographers.js"
 
-//import {photographerFactory} from "./photographer.js"
+async function getPhotographers() {
+  return fetch("./data/photographers.json")
+  .then(function(result) {
+    if(result.ok) {
+      return result.json();
+    }
+  })
+  
+}
 
+async function displayData(photographers) {
+  const photographersSection = document.querySelector(".photographer_section");
 
-    async function getPhotographers() {
-    let url = 'data/photographers.json';
-    let response = await fetch(url);
-    let data = await response.json();
+  photographers.forEach((photographer) => {
+      const photographerModel = photographerFactory(photographer);
+      const userCardDOM = photographerModel.getUserCardDOM();
+      photographersSection.appendChild(userCardDOM);
+  });
+}
 
-    const dataPhotographers = [...data.photographers];
-    const dataMedias = [...data.media];
+async function init() {
+  // Récupère les datas des photographes
+  const { photographers } = await getPhotographers();
+  displayData(photographers);
+}
 
-    return {
-        'photographers': dataPhotographers,
-        'media': dataMedias
-    };
-
-   }
-
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
-
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    };
-
-    async function init() {
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
-    };
-    
 init();
-    

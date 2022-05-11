@@ -1,36 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b28388b6e.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="./index.html" aria-label="logo du site et lien page d'accueil">
+       <img src="assets/images/logo.png" aria-label="logo du site" class="logo" alt="logo du site" />
+      </a>  
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+     <article class="photographer-header">
+
+     </article>  
+     <section class="photographer__selectOption">
+      <label class="selectOption__label">Trier par</label> 
+      <select class="photographer__selectOption--wraper">
+        <option value="popularité">Popularité</option>
+        <option value="date">Date</option>
+        <option value="titre">Titre</option>
+      </select>
+     </section>
+     <article class="photographer__portfolio"> </article>
+
     </main>
+
+        <!-- /////////////////////////////////////////////// -->
+    
+
+
+        <!-- ////////////////////////////////////////////////-->
     <div id="contact_modal">
 			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+
+				<header class="modalheader" aria-label="contactez le photographe">
+          <h2 class="modale__h2">Contactez </h2>
+          <button class="closeCross" id="crossTop" ></button>
+
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
+				<form id="contact__form" class="contact__form">
+					<div
+            class="formData">
+            <label for="first">Prénom</label><br>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="first"
+            /><br>
+                <span class="firstNameErrorMsg hidden">2 lettres ou plus sont demandés</span>
+          </div>
+              <div
+                class="formData">
+                <label for="last">Nom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                /><br>
+                <span class="lastNameErrorMsg hidden">2 lettres ou plus sont demandés</span>
+              </div>
+              <div
+                class="formData">
+                <label for="email">E-mail</label><br>
+                <input
+                  class="text-control"
+                  id="email"
+                  name="email"
+                /><br>
+                <span class="emailErrorMsg hidden">un email valide est demandé</span>
+              </div>
+              <div
+              class="formData">
+              <label for="message">Message</label><br>
+              <textarea
+                class="text-control"
+                id="message"
+                name="message"
+                rows="4"
+                cols="40"
+              ></textarea>
+              <br>
+              <span class="messageErrorMsg hidden">un message est demandé</span>
+            </div>
           <button class="contact_button">Envoyer</button>
 				</form>
+        <div id="validationForm">
+          <p id="validationMessage">message à bien été envoyé</p> <br>
+          <button class=" contact_button closeCross" id="closeForm">
+            Fermer
+          </button>
+          </div>
 			</div>
 		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script type="module" src="./scripts/pages/photographers.js"></script>
   </body>
 </html>
