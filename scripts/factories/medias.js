@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3d5d3329ec3c3185c92e5e75ddd16857889534da
 
 class Media {
   constructor(mediaData) {
