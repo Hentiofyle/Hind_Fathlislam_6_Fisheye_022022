@@ -26,7 +26,7 @@ class Media {
 }
 
 
-
+// class video extended de la classe media, qui affiche la video dans le cas où la media data est une video 
 class Video extends Media{
 
   render() {
@@ -45,7 +45,8 @@ class Video extends Media{
           <h3 class="photographer__portfolio--media--info--title">${this.title}</h3>
           <div class="photographer__portfolio--media--info--like">
             <span class="photographer__portfolio--media--info--like--count">${this.likes}</span>
-            <button id="like__heart" class="${this.isLiked === true ? 'fas' : 'far'} fa-heart photographer__portfolio--media--info--like--heart" aria-labelledby="bouton j'aime"></button>
+            <button id="like__heart" class="${this.isLiked === true ? 'fas' : 'far'} fa-heart photographer__portfolio--media--info--like--heart" 
+            ></button>
           </div>
          </div>
         `;
@@ -56,6 +57,9 @@ class Video extends Media{
   }
 }
 
+//  ===========================        function qui display les images + title et nombre de likes         ========================= //
+
+// class Image extended de la classe media, qui affiche l'image dans le cas où la media data est une video 
 class Image extends Media {
 
 
@@ -74,16 +78,18 @@ class Image extends Media {
            <h3 class="photographer__portfolio--media--info--title">${this.title}</h3>
            <div class="photographer__portfolio--media--info--like">
             <span class="photographer__portfolio--media--info--like--count">${this.likes}</span>
-            <button id="like__heart" class="${this.isLiked === true ? 'fas' : 'far'} fa-heart photographer__portfolio--media--info--like--heart" aria-labelledby="bouton j'aime"></button>
+            <button id="like__heart" class="${this.isLiked === true ? 'fas' : 'far'} fa-heart photographer__portfolio--media--info--like--heart" ></button>
            </div>
           </div>`;
-        
+   // display image + title + number of likes  + verifie si le boolean isliked est true : le coeur est vide sinon si le coeur est rempli de couleur darkred  
         
        photographerMediaSection.appendChild(photographerMedia__content);
        
   }
 }
 
+
+//  ===========================       function qui display une video si la mediaData= video sinon une image         ========================= //
 export function MediaFactory(mediaData) {
   if (mediaData.video) {
     return new Video(mediaData);

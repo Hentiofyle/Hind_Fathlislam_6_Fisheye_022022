@@ -10,31 +10,35 @@
   </head>
   <body>
     <header>
-      <a href="./index.html" aria-label="logo du site et lien page d'accueil">
-       <img src="assets/images/logo.png" aria-label="logo du site" class="logo" alt="logo du site" />
+      <a href="./index.html" aria-label="logo du site et lien page d'accueil" tabindex="1" >
+       <img src="assets/images/logo.png" aria-label="logo du site"  class="logo" alt="logo du site" />
       </a>  
     </header>
     <main id="main">
-     <article class="photographer-header">
+     <div class="photographer-header">
 
-     </article>  
-     <section class="photographer__selectOption">
+     </div>  
+     <div class="photographer__selectOption">
       <label class="selectOption__label">Trier par</label> 
       <select class="photographer__selectOption--wraper">
         <option value="popularité">Popularité</option>
         <option value="date">Date</option>
         <option value="titre">Titre</option>
       </select>
-     </section>
-     <article class="photographer__portfolio"> </article>
+    </div>
+     <div class="photographer__portfolio"> </div>
+
+     <footer class="footer">
+      <div class="footer__likes">
+        <span class="footer__total_likes"> </span>
+        <i class="fas fa-heart"></i>
+      </div>
+      <p class="footer__price"></p>
+    </footer>
 
     </main>
 
-        <!-- /////////////////////////////////////////////// -->
-    
 
-
-        <!-- ////////////////////////////////////////////////-->
     <div id="contact_modal">
 			<div class="modal">
 

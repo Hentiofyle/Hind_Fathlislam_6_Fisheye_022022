@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "parser": "babel-eslint"
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ]
+}
