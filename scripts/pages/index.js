@@ -1,22 +1,21 @@
-import {photographerFactory} from "../factories/photographers.js"
+import { photographerFactory } from '../factories/photographers.js';
 
 async function getPhotographers() {
-  return fetch("./data/photographers.json")
-  .then(function(result) {
-    if(result.ok) {
-      return result.json();
-    }
-  })
-  
+  return fetch('./data/photographers.json')
+    .then((result) => {
+      if (result.ok) {
+        return result.json();
+      }
+    });
 }
 
 async function displayData(photographers) {
-  const photographersSection = document.querySelector(".photographer_section");
+  const photographersSection = document.querySelector('.photographer_section');
 
   photographers.forEach((photographer) => {
-      const photographerModel = photographerFactory(photographer);
-      const userCardDOM = photographerModel.getUserCardDOM();
-      photographersSection.appendChild(userCardDOM);
+    const photographerModel = photographerFactory(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
   });
 }
 
