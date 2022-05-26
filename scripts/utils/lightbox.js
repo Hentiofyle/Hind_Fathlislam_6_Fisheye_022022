@@ -1,5 +1,6 @@
 // ===========      LIGHTBOX         ============= //
 
+// function qui va generer le lien href du media
 export default class Lightbox {
   static init() {
     const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'));
@@ -7,7 +8,6 @@ export default class Lightbox {
     links.forEach((link) => link.addEventListener('click', (e) => {
       e.preventDefault();
       new Lightbox(e.currentTarget.getAttribute('href'), gallery);
-      console.log(gallery);
     }));
   }
 
@@ -21,6 +21,7 @@ export default class Lightbox {
     document.addEventListener('keydown', this.onKeyUp);
   }
 
+  // function qui va generer le media selon dataType
   loadMedia(url) {
     if (url.endsWith('.jpg')) {
       this.url = null;
@@ -56,6 +57,8 @@ export default class Lightbox {
       video.src = url;
     }
   }
+
+// s'occupe de laction de la lightbox avec touche clavier 
 
   onKeyUp(e) {
     if (e.key === 'Escape') {
@@ -119,13 +122,14 @@ export default class Lightbox {
     const selectedMediaDom = [
       ...imageDomList, ...videoSourceDomList].find((img) => img.src.includes(url));
 
-    console.log(selectedMediaDom);
     dom.classList.add('lightbox');
     dom.innerHTML = `<button class="lightbox__close" tabindex="1"></button>
    <button class="lightbox__next" tabindex="2"></button>
    <button class="lightbox__prev" tabindex="4"></button>
    <div class="lightbox__container"></div>
    <div class="lightbox__title">${selectedMediaDom.title}</div>`;
+   
+// s'occupe de laction de la lightbox avec click
 
     dom.querySelector('.lightbox__close').addEventListener(
       'click',

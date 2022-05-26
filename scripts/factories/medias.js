@@ -1,3 +1,4 @@
+// function qui va generer l'image si mediaData = image
 function Image({ image }) {
   this.image = image;
   this.render = () => {
@@ -32,7 +33,7 @@ function Image({ image }) {
     photographerMediaSection.appendChild(photographerMediaContent);
   };
 }
-
+// function qui va generer l'image si mediaData = video
 function Video({ video }) {
   this.video = video;
   this.render = () => {
@@ -69,8 +70,8 @@ function Video({ video }) {
     photographerMediaSection.appendChild(photographerMediaContent);
   };
 }
-
-const MediaFactory = function () {
+// factory qui utilise if statement pour invoquer la bonne function 
+const MediaFactory = function() {
   this.createMedia = (mediaData) => {
     let media;
 

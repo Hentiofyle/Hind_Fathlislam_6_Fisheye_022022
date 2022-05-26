@@ -43,17 +43,17 @@ async function photographerHeader(photographer) {
   photographerheaderSection.appendChild(photographerHeaderContent);
 }
 
-//  ===========================    Fetch data + filtre images selon photographerID      ========================= //
+//   Fetch data + filtre images selon photographerID     //
 
 // ici je reutilise la function fetch pour ensuite récuprer que les images selon le photographerID et le display dans la page du photograph en question
 
-const getMediaData = async (photographerMedia_Id) => {
+const getMediaData = async (photographerMediaId) => {
   const data = await fetchPhotographers();
-  const selectedMediaFilter = data.media.filter((media) => media.photographerId === photographerMedia_Id);
+  const selectedMediaFilter = data.media.filter((media) => media.photographerId === photographerMediaId);
   return selectedMediaFilter;
 };
 
-//  ===========================           LIKES          ========================= //
+//      LIKES          //
 
 // function qui donne la somme des likes de chaque media et l'affiche dans le footer
 
@@ -160,8 +160,7 @@ photographerPortfolio(selectedMedia);
 // ======== BTN TRIE MEDIA ====== //
 
 document.querySelector('.photographer__selectOption').addEventListener('change', (e) => {
-  console.log('before', selectedMedia);
-  // switch qui invoque la bonne function selon le choix de l'utilisateur dans le trie
+// switch qui invoque la bonne function selon le choix de l'utilisateur dans le trie
   switch (e.target.value) {
     case 'date':
       mediaSortDate();
@@ -175,8 +174,6 @@ document.querySelector('.photographer__selectOption').addEventListener('change',
     default:
       mediaSortpopularity();
   }
-
-  console.log('after', selectedMedia);
 
   const photographerMediaSection = document.querySelector('.photographer__portfolio');
   photographerMediaSection.innerHTML = '';

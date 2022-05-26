@@ -1,4 +1,5 @@
-export default function photographerFactory(data) {
+/* eslint-disable import/prefer-default-export */
+export function photographerFactory(data) {
   const {
     id, name, city, country, tagline, price, portrait,
   } = data;
